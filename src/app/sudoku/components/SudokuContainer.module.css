@@ -1,0 +1,56 @@
+.sudokuContainer {
+  display: grid;
+  grid-template-columns: repeat(9, 30px);
+  grid-template-rows: repeat(9, 30px);
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightgray;
+}
+
+.square:nth-child(9n + 1),
+.square:nth-child(9n + 4),
+.square:nth-child(9n + 7) {
+  border-left: 1px solid black;
+}
+
+.square:nth-child(-n + 9) {
+  border-top: 1px solid black;
+}
+
+.square:nth-child(n + 28):nth-child(-n + 36),
+.square:nth-child(n + 55):nth-child(-n + 63) {
+  border-top: 1px solid black;
+}
+
+.square:nth-child(9n) {
+  border-right: 1px solid black;
+}
+
+.square:nth-last-child(-n + 9) {
+  border-bottom: 1px solid black;
+}
+
+.square.hidden {
+  cursor: pointer;
+}
+
+.square.hidden span {
+  display: block;
+  visibility: hidden;
+}
+
+.square.selected {
+  background-color: #fffe00;
+}
+
+.square.fail {
+  background-color: #FF4500;
+}
+
+.square.success {
+  background-color: #6DBF2F;
+}

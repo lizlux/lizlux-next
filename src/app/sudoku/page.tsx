@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "./styles/sudoku.css";
+import styles from "./page.module.css";
 import DifficultyToggle from "./components/DifficultyToggle";
 import Link from "next/link";
 import { DifficultyLevel, ValidNumber } from "./types/sudoku-types";
 import { getHidden, getLines } from "./helpers/getSudokuGrid";
 import GameTimer from "./components/GameTimer";
 import SudokuContainer from "./components/SudokuContainer";
-import WeatherWidget from "./components/WeatherWidget";
+// import WeatherWidget from "./components/WeatherWidget";
 
 function Sudoku() {
   const [difficultyLevel, setDifficultyLevel] = useState<DifficultyLevel>(null);
@@ -101,15 +101,15 @@ function Sudoku() {
   });
 
   return (
-    <div className="App">
-      <h1>Welcome to Sudoku</h1>
-      <h2>Built with React</h2>
+    <div className={styles.sudokuApp}>
+      <h1 className={styles.heading1}>Welcome to Sudoku</h1>
+      <h2 className={styles.heading2}>Built in React by Liz Lee</h2>
       {difficultyLevel && lines && hiddenGrid ? (
         <>
-          <div className="sudoku-header">
+          <div className={styles.sudokuHeader}>
             <Link
               href="/"
-              className="back-button"
+              className={styles.backButton}
               role="button"
               onClick={(event) => {
                 event.preventDefault();
@@ -135,7 +135,7 @@ function Sudoku() {
           difficultyLevel={difficultyLevel}
         />
       )}
-      <WeatherWidget />
+      {/* <WeatherWidget /> */}
     </div>
   );
 }

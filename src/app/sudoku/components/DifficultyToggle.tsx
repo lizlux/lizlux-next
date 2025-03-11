@@ -1,5 +1,5 @@
 import { DifficultyLevel } from "../types/sudoku-types";
-import "./DifficultyToggle.css";
+import styles from "./DifficultyToggle.module.css";
 
 const DifficultyToggle = ({
   difficultyLevel,
@@ -9,21 +9,27 @@ const DifficultyToggle = ({
   setDifficultyLevel: (level: DifficultyLevel) => void;
 }) => {
   return (
-    <div className="difficulty-toggle">
+    <div className={styles.difficultyToggle}>
       <button
-        className={difficultyLevel === 1 ? "selected" : ""}
+        className={
+          styles.toggleButton + (difficultyLevel === 1 ? " selected" : "")
+        }
         onClick={() => setDifficultyLevel(1)}
       >
         Easy
       </button>
       <button
-        className={difficultyLevel === 2 ? "selected" : ""}
+        className={
+          styles.toggleButton + (difficultyLevel === 2 ? " selected" : "")
+        }
         onClick={() => setDifficultyLevel(2)}
       >
         Medium
       </button>
       <button
-        className={difficultyLevel === 3 ? "selected" : ""}
+        className={
+          styles.toggleButton + (difficultyLevel === 3 ? " selected" : "")
+        }
         onClick={() => setDifficultyLevel(3)}
       >
         Hard

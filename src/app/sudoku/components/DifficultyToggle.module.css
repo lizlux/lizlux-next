@@ -1,4 +1,8 @@
-button {
+.difficultyToggle {
+  margin-top: 40px;
+}
+
+.toggleButton {
   background: none;
   border: 1px solid #277632;
   color: #277632;
@@ -10,8 +14,8 @@ button {
   margin: 10px 4px;
 }
 
-button:hover,
-button.selected {
+.toggleButton:hover,
+.toggleButton.selected {
   background: #277632;
   color: white;
 }

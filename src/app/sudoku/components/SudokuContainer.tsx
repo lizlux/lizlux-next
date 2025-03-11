@@ -1,4 +1,5 @@
 import { ValidNumber } from "../types/sudoku-types";
+import styles from "./SudokuContainer.module.css";
 
 function SudokuContainer({
   lines,
@@ -40,25 +41,27 @@ function SudokuContainer({
   };
 
   const getSquareClassName = (rowIndex: ValidNumber, colIndex: ValidNumber) => {
-    return `square ${
+    return `${styles.square} ${
       isSelected(rowIndex as ValidNumber, colIndex as ValidNumber)
-        ? "selected "
+        ? `${styles.selected} `
         : ""
     }${
       isHidden(rowIndex as ValidNumber, colIndex as ValidNumber)
-        ? "hidden "
+        ? `${styles.hidden} `
         : ""
     }${
-      isFail(rowIndex as ValidNumber, colIndex as ValidNumber) ? "fail " : ""
+      isFail(rowIndex as ValidNumber, colIndex as ValidNumber)
+        ? `${styles.fail} `
+        : ""
     }${
       isSuccess(rowIndex as ValidNumber, colIndex as ValidNumber)
-        ? "success "
+        ? `${styles.success} `
         : ""
     }`;
   };
 
   return (
-    <div className="sudoku-container">
+    <div className={styles.sudokuContainer}>
       {lines.map((line, rowIndex) =>
         line.map((square, colIndex) => (
           <div
