@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -44,27 +45,30 @@ export default function Home() {
         <nav className="nav">
           <ul>
             <li>
-              <a
+              <Link
                 href="https://www.linkedin.com/in/lizluxlee/"
                 target="_blank"
                 rel="noreferrer"
               >
                 LinkedIn
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="https://github.com/lizlux"
                 target="_blank"
                 rel="noreferrer"
               >
                 GitHub
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/Liz_Lee_Resume.pdf" target="_blank" rel="noreferrer">
+              <Link href="/Liz_Lee_Resume.pdf" target="_blank" rel="noreferrer">
                 Resume
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/sudoku">Play Sudoku</Link>
             </li>
           </ul>
         </nav>
