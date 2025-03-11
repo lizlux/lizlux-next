@@ -36,7 +36,8 @@ export default function Home() {
       </header>
       <section className="content">
         <h2>
-          Lets Build
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          Let's Build
           <br />
           Great Products
         </h2>
