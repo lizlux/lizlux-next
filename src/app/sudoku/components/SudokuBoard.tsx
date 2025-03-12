@@ -76,9 +76,11 @@ function SudokuBoard({
             }
           >
             <span data-testid="sudoku-span">
-              {isHidden(rowIndex as ValidNumber, colIndex as ValidNumber)
-                ? ""
-                : square}
+              {isHidden(rowIndex as ValidNumber, colIndex as ValidNumber) ? (
+                <input type="tel" />
+              ) : (
+                square
+              )}
             </span>
           </div>
         ))
