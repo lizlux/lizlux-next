@@ -7,7 +7,7 @@ import Link from "next/link";
 import { DifficultyLevel, ValidNumber } from "./types/sudoku-types";
 import { getHidden, getLines } from "./helpers/getSudokuGrid";
 import GameTimer from "./components/GameTimer";
-import SudokuContainer from "./components/SudokuContainer";
+import SudokuBoard from "./components/SudokuBoard";
 // import WeatherWidget from "./components/WeatherWidget";
 
 function Sudoku() {
@@ -129,7 +129,7 @@ function Sudoku() {
               </Link>
               <GameTimer enableTimer={true} />
             </div>
-            <SudokuContainer
+            <SudokuBoard
               lines={lines}
               hiddenGrid={hiddenGrid}
               selectedXY={selectedXY}

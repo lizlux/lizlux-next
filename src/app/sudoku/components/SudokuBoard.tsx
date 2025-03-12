@@ -1,7 +1,7 @@
 import { ValidNumber } from "../types/sudoku-types";
-import styles from "./SudokuContainer.module.css";
+import styles from "./SudokuBoard.module.css";
 
-function SudokuContainer({
+function SudokuBoard({
   lines,
   hiddenGrid,
   selectedXY,
@@ -87,4 +87,4 @@ function SudokuContainer({
   );
 }
 
-export default SudokuContainer;
+export default SudokuBoard;
