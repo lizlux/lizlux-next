@@ -1,19 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Image
         aria-hidden
         src="/Vine.svg"
         alt="decorative vine"
         width={900}
         height={1211}
-        className="vine"
+        className={styles.vine}
       />
 
-      <header className="header">
-        <span className="headshot">
+      <header className={styles.header}>
+        <span className={styles.headshot}>
           <Image
             aria-hidden
             src="/Liz_Lee_Headshot.jpg"
@@ -22,8 +24,8 @@ export default function Home() {
             height={240}
           />
         </span>
-        <h1>Liz Lee</h1>
-        <div className="details">
+        <h1 className={styles.heading1}>Liz Lee</h1>
+        <div className={styles.details}>
           <p>Lead Front End Engineer</p>
           <p>Engineering Mangement</p>
           <p>JavaScript / Typescript</p>
@@ -34,37 +36,49 @@ export default function Home() {
           <p>Expert Level</p>
         </div>
       </header>
-      <section className="content">
-        <h2>
+      <section className={styles.content}>
+        <h2 className={styles.heading2}>
           {/* eslint-disable-next-line react/no-unescaped-entities */}
           Let's Build
           <br />
           Great Products
         </h2>
-        <nav className="nav">
+        <nav className={styles.nav}>
           <ul>
             <li>
-              <a
+              <Link
                 href="https://www.linkedin.com/in/lizluxlee/"
                 target="_blank"
                 rel="noreferrer"
+                className={styles.link}
               >
                 LinkedIn
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="https://github.com/lizlux"
                 target="_blank"
                 rel="noreferrer"
+                className={styles.link}
               >
                 GitHub
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/Liz_Lee_Resume.pdf" target="_blank" rel="noreferrer">
+              <Link
+                href="/Liz_Lee_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.link}
+              >
                 Resume
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/sudoku" className={styles.link}>
+                Play Sudoku
+              </Link>
             </li>
           </ul>
         </nav>

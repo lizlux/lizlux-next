@@ -1,0 +1,83 @@
+/* TODO:
+ *  - move grid styles to grid css
+ *  - set css variables for colors so they can be used throughout
+ */
+
+.sudokuApp {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+  border: 1px solid #277632;
+  border-radius: 4px;
+  padding-bottom: 20px;
+}
+
+/* TODO: add error message to UI */
+.error-message {
+  color: rgb(88, 21, 28);
+  border: 1px solid rgb(220, 53, 69);
+  background-color: rgb(248, 215, 218);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.error-message a {
+  color: rgb(88, 21, 28);
+}
+
+.error-message.hidden {
+  display: none;
+}
+
+.heading1 {
+  margin: 20px 0 5px;
+  color: #0d2510;
+  font-weight: normal;
+  font-size: 24px;
+
+}
+
+.heading2 {
+  color: #0d2510;
+  margin: 0;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.sudokuHeader {
+  color: #277632;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #27763231;
+  box-sizing: border-box;
+}
+
+.headerBackButton {
+  margin: 20px;
+}
+
+.backButton {
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+  color: #277632;
+}
+
+.backButton:hover {
+  color: #0d2510;}
+
+.backButton::before {
+  content: "";
+  background-image: url("/arrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  transform: scaleX(-1);
+}
