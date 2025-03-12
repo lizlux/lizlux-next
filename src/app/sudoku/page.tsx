@@ -101,42 +101,52 @@ function Sudoku() {
   });
 
   return (
-    <div className={styles.sudokuApp}>
-      <h1 className={styles.heading1}>Welcome to Sudoku</h1>
-      <h2 className={styles.heading2}>Built in React by Liz Lee</h2>
-      {difficultyLevel && lines && hiddenGrid ? (
-        <>
-          <div className={styles.sudokuHeader}>
-            <Link
-              href="/"
-              className={styles.backButton}
-              role="button"
-              onClick={(event) => {
-                event.preventDefault();
-                setDifficultyLevel(null);
-              }}
-            >
-              Back
-            </Link>
-            <GameTimer enableTimer={true} />
-          </div>
-          <SudokuContainer
-            lines={lines}
-            hiddenGrid={hiddenGrid}
-            selectedXY={selectedXY}
-            setSelectedXY={setSelectedXY}
-            successXY={successXY}
-            failXY={failXY}
+    <>
+      <Link
+        href="/"
+        className={`${styles.backButton} ${styles.headerBackButton}`}
+        role="button"
+      >
+        Back
+      </Link>
+
+      <div className={styles.sudokuApp}>
+        <h1 className={styles.heading1}>Welcome to Sudoku</h1>
+        <h2 className={styles.heading2}>Built in React by Liz Lee</h2>
+        {difficultyLevel && lines && hiddenGrid ? (
+          <>
+            <div className={styles.sudokuHeader}>
+              <Link
+                href="/"
+                className={styles.backButton}
+                role="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setDifficultyLevel(null);
+                }}
+              >
+                Start new game
+              </Link>
+              <GameTimer enableTimer={true} />
+            </div>
+            <SudokuContainer
+              lines={lines}
+              hiddenGrid={hiddenGrid}
+              selectedXY={selectedXY}
+              setSelectedXY={setSelectedXY}
+              successXY={successXY}
+              failXY={failXY}
+            />
+          </>
+        ) : (
+          <DifficultyToggle
+            setDifficultyLevel={setDifficultyLevel}
+            difficultyLevel={difficultyLevel}
           />
-        </>
-      ) : (
-        <DifficultyToggle
-          setDifficultyLevel={setDifficultyLevel}
-          difficultyLevel={difficultyLevel}
-        />
-      )}
-      {/* <WeatherWidget /> */}
-    </div>
+        )}
+        {/* <WeatherWidget /> */}
+      </div>
+    </>
   );
 }
 
