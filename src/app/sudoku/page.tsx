@@ -5,15 +5,20 @@ import styles from "./page.module.css";
 import DifficultyToggle from "./components/DifficultyToggle";
 import Link from "next/link";
 import { DifficultyLevel, ValidNumber } from "./types/sudoku-types";
-import { getHidden, getLines } from "./helpers/getSudokuGrid";
+import { getHidden, getLines } from "../api/sudoku/getSudokuGrid";
 import GameTimer from "./components/GameTimer";
 import SudokuBoard from "./components/SudokuBoard";
+import { useSudokuAPI } from "./hooks/useSudokuAPI";
 // import WeatherWidget from "./components/WeatherWidget";
 
 function Sudoku() {
   const [difficultyLevel, setDifficultyLevel] = useState<DifficultyLevel>(null);
-  const [lines, setLines] = useState<ValidNumber[][] | null>(null);
-  const [hiddenGrid, setHiddenGrid] = useState<boolean[][] | null>(null);
+  // const [lines, setLines] = useState<ValidNumber[][] | null>(null);
+  // const [hiddenGrid, setHiddenGrid] = useState<boolean[][] | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [lines, hiddenGrid, loading, error] = useSudokuAPI({
+    difficulty: difficultyLevel,
+  });
   const [selectedXY, setSelectedXY] = useState<ValidNumber[] | null>(null);
   const [successXY, setSuccessXY] = useState<ValidNumber[] | null>(null);
   const [failXY, setFailXY] = useState<ValidNumber[] | null>(null);
@@ -22,6 +27,7 @@ function Sudoku() {
     const gridCopy = [...grid];
     const rowToReplace = gridCopy[selected[0]];
     rowToReplace.splice(selected[1], 1, false);
+    // TODO: figure out how to untangle this
     setHiddenGrid(gridCopy);
   };
 
@@ -49,12 +55,12 @@ function Sudoku() {
     setFailXY(selected);
   };
 
-  useEffect(() => {
-    if (difficultyLevel) {
-      setLines(getLines());
-      setHiddenGrid(getHidden(difficultyLevel));
-    }
-  }, [difficultyLevel]);
+  // useEffect(() => {
+  //   if (difficultyLevel) {
+  //     setLines(getLines());
+  //     setHiddenGrid(getHidden(difficultyLevel));
+  //   }
+  // }, [difficultyLevel]);
 
   useEffect(() => {
     if (!successXY) {

@@ -1,11 +1,15 @@
 // TODO: Rename non-react files to .ts from .tsx
-import { addOne, getRandomLine, getRandomNumber } from "./numberUtils";
+import {
+  addOne,
+  getRandomLine,
+  getRandomNumber,
+} from "../../sudoku/helpers/numberUtils";
 import {
   isUniqueToRow,
   isUniqueToColumn,
   isUniqueToBox,
-} from "./lineValidators";
-import { ValidNumber } from "../types/sudoku-types";
+} from "../../sudoku/helpers/lineValidators";
+import { DifficultyLevel, ValidNumber } from "../../sudoku/types/sudoku-types";
 
 const getNextLine = (lines: ValidNumber[][]): ValidNumber[] => {
   const lineLength = 9;
@@ -66,7 +70,10 @@ const difficultyMap = {
   3: 50,
 };
 
-export const getHidden = (difficultyLevel: 1 | 2 | 3): boolean[][] => {
+export const getHidden = (difficultyLevel: DifficultyLevel): boolean[][] => {
+  if (!difficultyLevel) {
+    throw "Difficulty level must be defined";
+  }
   const hiddenCount: number = difficultyMap[difficultyLevel];
   const hiddenGrid = new Array(9).fill(new Array(9).fill(false));
 
